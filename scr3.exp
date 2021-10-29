@@ -1,0 +1,88 @@
+#!/usr/bin/expect
+
+# set IP "10.73.127.11"
+set F model.txt
+spawn telnet [lindex $argv 0]
+
+#expect "UserName:" 
+#send "opersw\n" 
+
+#expect "PassWord:" 
+#send "cdbnxjgthfnjh\n"
+
+#send "logout\r"
+#send "show sw\r"
+
+# for var in  ^10\.(71|73|74)\.(124|125|126|127)\.\d*$
+
+#log_file model.log
+#send_log "LOOOL"
+
+
+expect {
+-timeout 3
+
+"DES-3028" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3028\n"
+}
+
+"DGS-1100-06/ME" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DGS-1100-06/ME\n"
+}
+
+"DES-1210-28/ME" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-1210-28/ME\n"
+}
+
+"DES-1228/ME" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-1228/ME\n"
+}
+
+"DES-3200-18" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3200-18\n"
+}
+
+"DES-3200-26" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3200-26\n"
+}
+
+"DES-3200-28" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3200-28\n"
+}
+
+"DES-3526" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3526\n"
+}
+
+"DES-3810-28" {set model "dlink"
+log_file -a $F
+send_log "[lindex $argv 0],"
+send_log "DES-3810-28\n"
+}
+
+}
+
+
+#send " \r"
+#send "q \r"
+#sleep 1
+#send "q/n"
+send "logout\r"
+
+send eof
